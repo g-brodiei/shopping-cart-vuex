@@ -17,7 +17,8 @@
   "resolutions": {
     "js-yaml": "^3.13.1",
     "mime": ">= 1.4.1 < 2.0.0",
-    "braces": ">=2.3.1"
+    "braces": ">=2.3.1",
+    "mem": "^4.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
