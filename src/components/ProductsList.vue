@@ -33,18 +33,18 @@ export default {
     }
   },
   computed: {
-    ...mapState(
+    ...mapState('products',
     // can use array ['products'] or object like below
       {
         // allProducts: 'products'
-        products: state => state.products.items
+        products: state => state.items
       // firstProduct: state => state.products[0],
       // specificProduct (state) {
       //   return state.products[this.productIndex]
       // }
       }),
 
-    ...mapGetters({
+    ...mapGetters('products', {
       productIsInStock: 'productIsInStock'
     })
     // products () {
@@ -58,8 +58,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchProducts: 'fetchProducts',
-      addProductToCart: 'addProductToCart'
+      fetchProducts: 'products/fetchProducts',
+      addProductToCart: 'cart/addProductToCart'
     })
     // addProductToCart (product) {
     //   this.$store.dispatch('addProductToCart', product)
