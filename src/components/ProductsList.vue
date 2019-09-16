@@ -23,34 +23,54 @@
 <script>
 // import shop from '@/api/shop'
 // import store from '@/store/index'
-
+import {mapState, mapGetters, mapActions} from 'vuex'
 export default {
   name: 'ProductList',
   data () {
     return {
-      loading: false
+      loading: false,
+      productIndex: 1
     }
   },
   computed: {
-    products () {
-      // getters to call computed method
-      return this.$store.state.products
-    },
-    productIsInStock () {
-      // getters to check product stock
-      return this.$store.getters.productIsInStock
-    }
+    ...mapState(
+    // can use array ['products'] or object like below
+      {
+    // allProducts: 'products'
+        products: state => state.products
+      // firstProduct: state => state.products[0],
+      // specificProduct (state) {
+      //   return state.products[this.productIndex]
+      // }
+      }),
+
+    ...mapGetters({
+      productIsInStock: 'productIsInStock'
+    })
+    // products () {
+    //   // getters to call computed method
+    //   return this.$store.state.products
+    // },
+    // productIsInStock () {
+    //   // getters to check product stock
+    //   return this.$store.getters.productIsInStock
+    // }
   },
   methods: {
-    addProductToCart (product) {
-      this.$store.dispatch('addProductToCart', product)
-    }
+    ...mapActions({
+      fetchProducts: 'fetchProducts',
+      addProductToCart: 'addProductToCart'
+    })
+    // addProductToCart (product) {
+    //   this.$store.dispatch('addProductToCart', product)
+    // }
   },
   created () {
     // dispatch to call Action in store
     // (nameOfAction, payload)
     this.loading = true
-    this.$store.dispatch('fetchProducts')
+    // this.$store.dispatch('fetchProducts')
+    this.fetchProducts()
       .then(() => { this.loading = false })
   }
 }
