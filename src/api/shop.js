@@ -1,4 +1,4 @@
- /**
+/**
  * Mocking client-server processing
  */
 const _products = [

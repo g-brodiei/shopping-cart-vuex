@@ -36,8 +36,8 @@ export default {
     ...mapState(
     // can use array ['products'] or object like below
       {
-    // allProducts: 'products'
-        products: state => state.products
+        // allProducts: 'products'
+        products: state => state.products.items
       // firstProduct: state => state.products[0],
       // specificProduct (state) {
       //   return state.products[this.productIndex]
