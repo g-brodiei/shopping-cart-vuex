@@ -11,10 +11,13 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "js-yaml": "^3.13.1",
-    "mem": "^4.0.0",
     "vue": "^2.5.2",
     "vuex": "^3.1.1"
+  },
+  "resolutions": {
+    "js-yaml": "^3.13.1",
+    "mime": ">= 1.4.1 < 2.0.0",
+    "braces": ">=2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
